@@ -109,7 +109,7 @@ export class AddContactComponent implements OnInit {
       alert('Form Successfully submitted');
     } else {
       alert(
-        'An error occurred. Ensure you fill all required fields and have at least one address before clicking submit.'
+        'Please ensure you fill all required fields and have at least one address before clicking submit.'
       );
     }
   }
