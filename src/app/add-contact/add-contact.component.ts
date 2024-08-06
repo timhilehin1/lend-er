@@ -11,16 +11,13 @@ import { DataService } from '../data.service';
   templateUrl: './add-contact.component.html',
   styleUrls: ['./add-contact.component.scss'],
 })
-export class AddContactComponent {
+export class AddContactComponent implements OnInit {
   contactForm: FormGroup;
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
-      phoneNumber: [
-        '',
-        [Validators.required, Validators.minLength(11), Validators.maxLength(11)]
-      ],
+      phoneNumber: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       addresses: this.fb.array(
         [this.createAddressGroup()],
@@ -29,6 +26,9 @@ export class AddContactComponent {
       longitude: [{ value: '', disabled: true }],
       latitude: [{ value: '', disabled: true }],
     });
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   get addresses(): FormArray {
@@ -52,11 +52,17 @@ export class AddContactComponent {
   }
   async onSubmit() {
     this.contactForm.markAllAsTouched();
+    const phoneNumber = this.contactForm.get('phoneNumber')?.value;
+    const email = this.contactForm.get('email')?.value;
+
+    //check phone number length
+    if (phoneNumber.length !== 11) {
+      alert('Phone number must be exactly 11 digits.');
+      return;
+    }
 
     if (this.contactForm.valid && this.addresses.length > 0) {
-      const email = this.contactForm.get('email')?.value;
-      const phoneNumber = this.contactForm.get('phoneNumber')?.value;
-
+      //check if phone number exists
       if (this.dataService.checkIfExists(email, phoneNumber)) {
         alert(
           'Email or phone number already exists. Please enter a new email or phone number.'
@@ -64,8 +70,15 @@ export class AddContactComponent {
         return;
       }
 
+      //get location for longitude and latitude
       try {
         const position = await this.getCurrentLocation();
+        if (!position.coords.longitude || !position.coords.latitude) {
+          alert(
+            'An error occurred. Please make sure that you have allowed the website to access your location and try again'
+          );
+          return;
+        }
         this.contactForm.patchValue({
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
