@@ -84,7 +84,8 @@ export class AddContactComponent implements OnInit {
           latitude: position.coords.latitude,
         });
       } catch (error) {
-        alert('Error getting location:');
+console.log(error)
+        // alert('Error getting location:');
       }
       const formValue = {
         ...this.contactForm.getRawValue(),
