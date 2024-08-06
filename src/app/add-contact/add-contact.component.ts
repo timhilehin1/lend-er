@@ -83,31 +83,30 @@ export class AddContactComponent implements OnInit {
           longitude: position.coords.longitude,
           latitude: position.coords.latitude,
         });
+        const formValue = {
+          ...this.contactForm.getRawValue(),
+          longitude: this.contactForm.get('longitude')?.value,
+          latitude: this.contactForm.get('latitude')?.value,
+        };
+        this.dataService.storeContact(formValue);
+        console.log(formValue);
+        this.contactForm.reset();
+        while (this.addresses.length !== 0) {
+          this.addresses.removeAt(0);
+        }
+        this.addAddress();
+
+        // Reset longitude and latitude
+        this.contactForm.patchValue({
+          longitude: '',
+          latitude: '',
+        });
+
+        alert('Form Successfully submitted');
       } catch (error) {
-console.log(error)
+        console.log(error);
         // alert('Error getting location:');
       }
-      const formValue = {
-        ...this.contactForm.getRawValue(),
-        longitude: this.contactForm.get('longitude')?.value,
-        latitude: this.contactForm.get('latitude')?.value,
-      };
-
-      this.dataService.storeContact(formValue);
-      console.log(formValue);
-      this.contactForm.reset();
-      while (this.addresses.length !== 0) {
-        this.addresses.removeAt(0);
-      }
-      this.addAddress();
-
-      // Reset longitude and latitude
-      this.contactForm.patchValue({
-        longitude: '',
-        latitude: '',
-      });
-
-      alert('Form Successfully submitted');
     } else {
       alert(
         'Please ensure you fill all required fields and have at least one address before clicking submit.'
