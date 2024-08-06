@@ -1,0 +1,31 @@
+<section>
+  <div *ngIf="tableData.length === 0" class="no-contacts">
+    <p>No contacts available.</p>
+    <button (click)="addContact()">Click here to add a contact</button>
+  </div>
+
+  <main class="table-container">
+    <table *ngIf="tableData.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Address</th>
+          <th>Longitude</th>
+          <th>Latitude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of tableData">
+          <td>{{ data.name ? data.name : "--" }}</td>
+          <td>{{ data.email ? data.email : "--" }}</td>
+          <td>{{ data.phoneNumber ? data.phoneNumber : "--" }}</td>
+          <td>{{ getRandomAddress(data.addresses) }}</td>
+          <td>{{ data.longitude ? data.longitude : "--" }}</td>
+          <td>{{ data.latitude ? data.latitude : "--" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</section>

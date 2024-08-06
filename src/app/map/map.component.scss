@@ -1,0 +1,16 @@
+@import url('../table/table.component.scss');
+
+.map-container{
+    width: 100%;
+    z-index: -99;
+    margin-top: 1rem;
+    position: relative;
+    height: 80dvh;
+
+    iframe{
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+}

@@ -1,0 +1,24 @@
+<main>
+    <header>
+      <p
+        [class.active]="activeTab === 'table'"
+        class="tab"
+        (click)="selectTab('table')"
+      >
+        Table View
+      </p>
+      <p
+        [class.active]="activeTab === 'map'"
+        class="tab"
+        (click)="selectTab('map')"
+      >
+        Map View
+      </p>
+    </header>
+  
+    <section>
+      <app-table *ngIf="activeTab === 'table'"></app-table>
+      <app-map *ngIf="activeTab === 'map'"></app-map>
+    </section>
+  </main>
+  

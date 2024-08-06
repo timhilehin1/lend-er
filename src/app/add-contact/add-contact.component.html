@@ -1,0 +1,88 @@
+<div class="container">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <header>Add Contact</header>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div
+        *ngIf="
+          contactForm.get('name')?.touched && contactForm.get('name')?.invalid
+        "
+      >
+        <small *ngIf="contactForm.get('name')?.errors?.['required']"
+          >Name is required.</small
+        >
+      </div>
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number:</label>
+      <input id="phoneNumber" formControlName="phoneNumber" />
+      <div
+        *ngIf="
+          contactForm.get('phoneNumber')?.touched &&
+          contactForm.get('phoneNumber')?.invalid
+        "
+      >
+        <small *ngIf="contactForm.get('phoneNumber')?.errors?.['required']"
+          >Phone Number is required and must be exactly 11 digits.</small
+        >
+        <small *ngIf="contactForm.get('phoneNumber')?.errors?.['exactLength']">Phone Number must be exactly 11 digits.</small>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      <div
+        *ngIf="
+          contactForm.get('email')?.touched && contactForm.get('email')?.invalid
+        "
+      >
+        <small *ngIf="contactForm.get('email')?.errors?.['required']"
+          >Email is required.</small
+        >
+        <small *ngIf="contactForm.get('email')?.errors?.['email']"
+          >Invalid Email.</small
+        >
+      </div>
+    </div>
+    <div formArrayName="addresses" class="address">
+      <header>
+        <label>Addresses</label> <span (click)="addAddress()">add +</span>
+      </header>
+
+      <div
+        class="address-container"
+        *ngFor="let address of addresses.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <div class="address-content">
+          <section>
+            <label>Address {{ i + 1 }}</label>
+            <input formControlName="address" />
+            <div
+              *ngIf="
+                address.get('address')?.touched &&
+                address.get('address')?.invalid
+              "
+            >
+              <small *ngIf="address.get('address')?.errors?.['']"
+                >Address is required.</small
+              >
+            </div>
+          </section>
+          <button type="button" (click)="removeAddress(i)">-</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label for="longitude">Longitude: realtime location of the browser(this will be auto generated)</label>
+      <input id="longitude" formControlName="longitude" />
+    </div>
+    <div>
+      <label for="latitude">Latitude: realtime location of the browser(this will be auto generated)</label>
+      <input id="latitude" formControlName="latitude" />
+    </div>
+
+    <button  type="submit">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<nav>
+  <button (click)="onToggleSidebar()" class="close">X</button>
+  <ul>
+    <li><a routerLink="/dashboard" routerLinkActive="active" (click)="onToggleSidebar()">Dashboard</a></li>
+    <li>
+      <a routerLink="/add-contact" routerLinkActive="active" (click)="onToggleSidebar()">Add Contact</a>
+    </li>
+  </ul>
+</nav>

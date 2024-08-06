@@ -1,0 +1,19 @@
+main {
+  header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .tab {
+    cursor: pointer;
+    color: gray;
+  }
+
+  .tab.active {
+    color: blue;
+    text-decoration: none;
+  }
+}
