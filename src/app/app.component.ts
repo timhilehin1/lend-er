@@ -11,7 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  isSidebarClosed = false;
+  isSidebarClosed = true;
 
   toggleSidebar() {
     this.isSidebarClosed = !this.isSidebarClosed;
