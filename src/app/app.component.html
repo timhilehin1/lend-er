@@ -1,16 +1,5 @@
-<section class="layout">
-  <aside class="sidebar" [class.closed]="isSidebarClosed">
-    <app-sidebar
-      [isSidebarClosed]="isSidebarClosed"
-      (toggleSidebar)="toggleSidebar()"
-    ></app-sidebar>
-  </aside>
-  <main class="main" [class.closed]="isSidebarClosed">
-    <div class="navbar">
-      <button (click)="toggleSidebar()">☰</button>
-    </div>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+<section class="bg-secondary-color">
+  <app-navbar></app-navbar>
+  <app-hero></app-hero>
+  <app-licence></app-licence>
 </section>
