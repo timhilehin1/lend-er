@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { featherAirplay, featherArrowUpRight } from '@ng-icons/feather-icons';
+import { featherAirplay, featherCheckSquare, featherArrowUpRight } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @Component({

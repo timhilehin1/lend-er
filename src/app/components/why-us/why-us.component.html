@@ -1,0 +1,32 @@
+<section
+  class="px-4 lg:px-16 bg-secondary-color py-8 lg:py-16 flex flex-col gap-6"
+>
+  <header class="flex gap-4 w-full max-w-[600px] flex-col">
+    <p class="text-primary-color font-[500] uppercase">WHY LEND-ER?</p>
+    <p class="text-header text-4xl leading-[60px] font-medium">
+      Empowering Your Lending Journey, Every Step of the Way.
+    </p>
+  </header>
+
+  <div class="leading-8 text-sub-text w-full max-w-[650px] text-lg">
+    We’ve been through it all and know what it takes to succeed in lending. With
+    Lendsqr as your partner, you’ll find easy solutions to every challenge,
+    ensuring your growth and success in the digital lending world.
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      @for(feature of keyFeatures; track feature.id){
+      <app-key-feature-card
+        [icon]="feature.icon"
+        [color]="feature.color"
+        [title]="feature.title"
+        [subTitle]="feature.subTitle"
+      ></app-key-feature-card>
+      }
+    </div>
+    <div class="w-full h-full hidden md:block">
+      <img class="w-full h-full" src="assets/images/whyImage.svg" />
+    </div>
+  </div>
+</section>
