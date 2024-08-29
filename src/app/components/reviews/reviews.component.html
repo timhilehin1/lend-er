@@ -1,1 +1,21 @@
-<p>reviews works!</p>
+<section class="px-4 lg:px-16 bg-[#F5FCFF] py-8 lg:py-16 flex flex-col gap-6">
+  <header class="flex gap-4 w-full flex-col">
+    <p class="text-header font-[500] text-4xl">
+      Don't just take our word for it
+    </p>
+    <p class="text-sub-text font-medium">
+      Hear what our customers have to say about Lend-er
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for(review of customerReviews; track review.id){
+    <app-reviews-card
+      [date]="review.date"
+      [reviewerName]="review.reviewerName"
+      [reviewerInitials]="review.reviewerInitials"
+      [content]="review.content"
+    ></app-reviews-card>
+    }
+  </div>
+</section>

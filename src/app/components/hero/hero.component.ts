@@ -7,7 +7,6 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
   selector: 'app-hero',
   standalone: true,
   imports: [NgIconComponent],
-  providers: [provideIcons({ featherArrowUpRight, heroUsers })],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
