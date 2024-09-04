@@ -8,7 +8,7 @@ import {
   featherArrowUpRight,
   featherStar,
 } from '@ng-icons/feather-icons';
-// import {bootstrapStar,bootstrapStarFill} from '@ng-icons/bootstrap-icons'
+import {bootstrapStar,bootstrapStarFill} from '@ng-icons/bootstrap-icons'
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
@@ -23,8 +23,8 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
       featherArrowUpRight,
       featherStar,
       heroUsers,
-      // bootstrapStar,
-      // bootstrapStarFill
+      bootstrapStar,
+      bootstrapStarFill
     }),
   ],
   exports: [CommonModule, FormsModule, ReactiveFormsModule, NgIconsModule],
