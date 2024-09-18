@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIconsModule } from '@ng-icons/core';
+import { RouterLink } from '@angular/router';
 import {
   featherAirplay,
   featherCheckSquare,
   featherArrowUpRight,
   featherStar,
 } from '@ng-icons/feather-icons';
-import {bootstrapStar,bootstrapStarFill} from '@ng-icons/bootstrap-icons'
-import { heroUsers } from '@ng-icons/heroicons/outline';
+import {
+  bootstrapStar,
+  bootstrapStarFill,
+  bootstrapPersonLinesFill,
+} from '@ng-icons/bootstrap-icons';
+import { heroUsers, heroHomeModern } from '@ng-icons/heroicons/outline';
+
 
 @NgModule({
   declarations: [],
@@ -17,6 +23,7 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterLink,
     NgIconsModule.withIcons({
       featherAirplay,
       featherCheckSquare,
@@ -24,9 +31,17 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
       featherStar,
       heroUsers,
       bootstrapStar,
-      bootstrapStarFill
+      bootstrapStarFill,
+      bootstrapPersonLinesFill,
+      heroHomeModern,
     }),
   ],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, NgIconsModule],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIconsModule,
+    RouterLink,
+  ],
 })
 export class SharedModule {}

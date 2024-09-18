@@ -1,0 +1,34 @@
+<app-auth-layout>
+  <div class="p-6 lg:p-12 space-y-6">
+    <p class="text-primary-color cursor-pointer">Back</p>
+    <img class="grow-0 mx-auto" src="/assets/icons/otp.svg" alt="otp image" />
+    <p class="text-header text-3xl font-medium text-center">OTP Verification</p>
+    <p class="text-sub-text text-center">
+      We sent a verification code to your phone number, Kindly enter the code to
+      complete your verification
+    </p>
+
+    <div class="border p-4 rounded-lg w-full relative">
+      <p-inputOtp
+        [(ngModel)]="value"
+        [mask]="true"
+        [integerOnly]="true"
+        [style]="{ display: 'flex', justifyContent: 'center' }"
+        variant="filled"
+        [autofocus]="true"
+        [length]="6"
+        (onInput)="onChange($event)"
+      />
+    </div>
+    <p class="text-sub-text text-right">
+      Didnt't get the code?
+      <span class="text-primary-color font-medium cursor-pointer"
+        >Resend code</span
+      >
+    </p>
+
+    <button class="p-3 rounded-lg bg-primary-color text-white w-full">
+      Verify Otp
+    </button>
+  </div>
+</app-auth-layout>

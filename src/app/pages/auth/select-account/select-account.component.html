@@ -1,0 +1,78 @@
+<app-auth-layout>
+  <div class="p-6 lg:p-12">
+    <app-logo></app-logo>
+    <p class="mt-4 text-sub-text">
+      We're glad you got to this point but before you get started, Select a type
+      of account you need.
+    </p>
+    <form
+      class="flex flex-col gap-4 mt-4"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <label
+        [ngClass]="
+          selectedType === 'personal' ? 'border-primary-color/70' : 'border'
+        "
+        class="border rounded-lg min-h-[12.5rem] relative p-4"
+      >
+        <input
+          class="absolute top-4 right-4"
+          type="radio"
+          formControlName="type"
+          value="personal"
+        />
+
+        <ng-icon
+          class="text-primary-color"
+          size="2rem"
+          name="bootstrapPersonLinesFill"
+        ></ng-icon>
+        <div class="flex flex-col gap-2">
+          <p class="font-bold text-primary-color text-xl">Personal</p>
+          <p class="text-sub-text">For individuals, freelancers, and SMEs</p>
+        </div>
+      </label>
+
+      <label
+        [ngClass]="
+          selectedType === 'business' ? 'border-primary-color/70' : 'border'
+        "
+        class="rounded-lg min-h-[12.5rem] mt-4 relative p-4 border"
+      >
+        <input
+          class="absolute top-4 right-4"
+          type="radio"
+          formControlName="type"
+          value="business"
+        />
+        <ng-icon
+          class="text-primary-color"
+          size="2rem"
+          name="heroHomeModern"
+        ></ng-icon>
+        <div class="flex flex-col gap-2">
+          <p class="font-bold text-primary-color text-xl">Business</p>
+          <p class="text-sub-text">
+            For registered small businesses, companies, fintechs, banks, etc
+          </p>
+        </div>
+      </label>
+
+      <button
+        [disabled]="selectedType ? false : true"
+        [ngClass]="selectedType ? 'bg-primary-color' : 'bg-primary-color/50'"
+        routerLink="/signup"
+        class="p-3 rounded-md text-white w-full"
+      >
+        Create Your Account
+      </button>
+      <p class="mt-1.5">
+        Already have an account?
+        <span routerLink="/login" class="text-primary-color cursor-pointer"
+          >Login</span
+        >
+      </p>
+    </form>
+  </div>
+</app-auth-layout>
