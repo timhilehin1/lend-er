@@ -1,0 +1,33 @@
+<section class="bg-secondary-color">
+  <app-navbar></app-navbar>
+  <div class="bg-secondary-color h-full min-h-[100vh] w-full">
+    <app-account-details></app-account-details>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 mt-4 gap-4 w-full mx-auto max-w-[1250px] rounded-lg"
+    >
+      <app-actions></app-actions>
+      <section class="min-h-60 bg-white overflow-auto p-4 rounded-md">
+        <header class="justify-between flex items-center text-header">
+          <div class="flex gap-4 items-center">
+            <img
+              class="h-5 object-cover"
+              src="assets/icons/history.svg"
+              alt="history icon"
+            />
+            <div>
+              <p class="font-[500]">Loan History</p>
+              <p class="text-sub-text text-sm mt-1">View your loan history</p>
+            </div>
+          </div>
+
+          <p class="text-sm cursor-pointer font-[500]">view all</p>
+        </header>
+        <div class="flex justify-center items-center flex-col text-header h-full mt-6">
+          <img class="" src="/assets/icons/noData.svg" alt="" />
+          <p class="items-center">No recent Transactions</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

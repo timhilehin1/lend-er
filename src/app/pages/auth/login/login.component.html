@@ -1,1 +1,63 @@
-<p>login works!</p>
+<app-auth-layout>
+  <div class="p-6 lg:p-12 space-y-6">
+    <app-logo></app-logo>
+    <div>
+      <p class="text-header text-3xl font-medium mt-8">Login to Brinte</p>
+      <p class="text-sub-text text-sm">Enter your credentials to login</p>
+    </div>
+
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col mt-8 space-y-6"
+    >
+      <div class="flex flex-col gap-1 mt-4">
+        <label>Email Address</label>
+        <input
+          class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+          type="text"
+          formControlName="email"
+          placeholder="Email address"
+        />
+        @if ( loginForm.controls["email"].invalid &&
+        loginForm.controls["email"].touched ) {
+        <div class="text-red-500 text-sm mt-1">Enter valid email address</div>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1 mt-4 relative">
+        <label>Password</label>
+        <input
+          class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+          [type]="inputType"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <p class="text-sm text-primary-color mt-1">Forgot password?</p>
+        @if(inputType === 'text'){
+        <ng-icon
+          (click)="togglePassword()"
+          size="1.5rem"
+          class="text-primary-color absolute top-10 right-4 cursor-pointer"
+          name="heroEyeSlash"
+        ></ng-icon>
+
+        }@else {
+        <ng-icon
+          (click)="togglePassword()"
+          size="1.5rem"
+          class="text-primary-color absolute top-10 right-4 cursor-pointer"
+          name="heroEye"
+        ></ng-icon>
+        }
+      </div>
+
+      <button
+        [ngClass]="loginForm.valid ? 'bg-primary-color' : 'bg-primary-color/70'"
+        class="p-3 rounded-md text-white w-full mt-4"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</app-auth-layout>

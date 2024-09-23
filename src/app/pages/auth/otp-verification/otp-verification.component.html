@@ -1,11 +1,19 @@
 <app-auth-layout>
   <div class="p-6 lg:p-12 space-y-6">
-    <p class="text-primary-color cursor-pointer">Back</p>
+    <div (click)="onBack()" class="flex items-center gap-2 cursor-pointer">
+      <ng-icon
+        size="1rem"
+        class="text-primary-color"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <p class="text-primary-color text-sm">Back</p>
+    </div>
+
     <img class="grow-0 mx-auto" src="/assets/icons/otp.svg" alt="otp image" />
     <p class="text-header text-3xl font-medium text-center">OTP Verification</p>
     <p class="text-sub-text text-center">
-      We sent a verification code to your phone number, Kindly enter the code to
-      complete your verification
+      We sent a verification code to your email address, Kindly enter the code
+      to complete your verification
     </p>
 
     <div class="border p-4 rounded-lg w-full relative">
@@ -17,7 +25,7 @@
         variant="filled"
         [autofocus]="true"
         [length]="6"
-        (onInput)="onChange($event)"
+        (ngModelChange)="onChange()"
       />
     </div>
     <p class="text-sub-text text-right">
@@ -27,8 +35,19 @@
       >
     </p>
 
-    <button class="p-3 rounded-lg bg-primary-color text-white w-full">
+    <button
+      (click)="onSubmit()"
+      class="p-3 rounded-lg bg-primary-color text-white w-full"
+    >
       Verify Otp
     </button>
   </div>
 </app-auth-layout>
+
+<!-- //success modal -->
+<app-success-modal
+  [visible]="successModalData.isVerified"
+  [title]="successModalData.title"
+  [subtitle]="successModalData.subtitle"
+  [url]="successModalData.url"
+></app-success-modal>

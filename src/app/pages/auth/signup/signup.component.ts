@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { SharedModule } from '../../../modules/shared/shared.module';
 import { LogoComponent } from '../../landingPage/logo/logo.component';
 import {
@@ -47,8 +47,8 @@ export class SignupComponent implements OnInit {
           ],
         ],
         confirmPassword: [null, [Validators.required]],
-        bvn: [null, [Validators.required]],
-        nin: [null, [Validators.required]],
+        bvn: [null, [Validators.required, Validators.maxLength(10)]],
+        // nin: [null, [Validators.required]],
       },
       { validators: this.confirmPasswordValidator }
     );
@@ -73,6 +73,16 @@ export class SignupComponent implements OnInit {
     //   return;
     // }
 
-    this.router.navigateByUrl('/otp-verification');
+    this.router.navigateByUrl('/record-verification');
+  }
+
+
+
+  @HostListener('window:beforeunload', ['$event'])
+  handleBeforeUnload($event: any): void {
+    if (this.registrationForm.touched) {
+      $event.returnValue =
+        'You have unsaved changes. Are you sure you want to leave?';
+    }
   }
 }

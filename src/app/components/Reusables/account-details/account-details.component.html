@@ -1,0 +1,41 @@
+<section
+  class="mt-4 bg-white rounded-lg p-2.5 min-h-[15rem] gap-4 grid lg:grid-cols-[30%_69%] grid-cols-1 w-full mx-auto max-w-[1250px]"
+>
+  <!-- lhs -->
+  <div class="bg-[#F4F4F4] p-4 rounded-lg flex flex-col">
+    <header class="flex justify-between lg:flex-col">
+      <p class="font-bold text-header">Account Details</p>
+      <p class="text-sub-text text-sm">Deposit Account</p>
+    </header>
+
+    <div class="mt-auto flex flex-col gap-1">
+      <p class="font-bold text-xl text-header">Timilehin Oladapo</p>
+      <p class="text-header font-[500] text-xl">0363053786</p>
+      <p class="text-sub-text text-sm">Paystack Titan</p>
+    </div>
+
+    <div class="border border-b-sub-text/50"></div>
+    <div
+      class="flex items-center justify-between text-header mt-1 text-sm font-[500]"
+    >
+      <p>Tier 1</p>
+      <p class="cursor-pointer">View more</p>
+    </div>
+  </div>
+
+  <!-- RHS -->
+  <div>
+    <div class="flex flex-wrap gap-4 w-full items-center relative">
+      @for (card of accountCardsData; track $index) {
+      <app-account-card
+        [url]="card.url"
+        [title]="card.title"
+        [amount]="card.amount"
+        [actionText]="card.actionText"
+        [color]="card.color"
+        class="flex-grow"
+      ></app-account-card>
+      }
+    </div>
+  </div>
+</section>

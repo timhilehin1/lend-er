@@ -1,0 +1,27 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [breakpoints]="{ '1199px': '35vw', '776px': '70vw', '575px': '90vw' }"
+  [style]="{ width: '35vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="false"
+>
+  <div class="p-4 border-lg">
+    <img
+      src="/assets/images/success.svg"
+      class="mx-auto mt-4"
+      alt="success image"
+    />
+    <p class="text-header text-3xl font-medium text-center">{{ title }}</p>
+    <p class="text-sub-text text-center mt-2">
+      {{ subtitle }}
+    </p>
+    <button
+      [routerLink]="url"
+      class="p-2.5 bg-primary-color rounded-lg w-full text-white mt-3"
+    >
+      Proceed to dashboard
+    </button>
+  </div>
+</p-dialog>

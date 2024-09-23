@@ -14,8 +14,15 @@ import {
   bootstrapStarFill,
   bootstrapPersonLinesFill,
 } from '@ng-icons/bootstrap-icons';
-import { heroUsers, heroHomeModern } from '@ng-icons/heroicons/outline';
-
+import {
+  heroUsers,
+  heroHomeModern,
+  heroArrowLeft,
+  heroEyeSlash,
+  heroEye,
+  heroRocketLaunch
+} from '@ng-icons/heroicons/outline';
+import { matArrowForwardIosOutline, matHouseOutline } from '@ng-icons/material-icons/outline';
 
 @NgModule({
   declarations: [],
@@ -34,6 +41,12 @@ import { heroUsers, heroHomeModern } from '@ng-icons/heroicons/outline';
       bootstrapStarFill,
       bootstrapPersonLinesFill,
       heroHomeModern,
+      heroArrowLeft,
+      heroEyeSlash,
+      heroRocketLaunch,
+      heroEye,
+      matHouseOutline,
+      matArrowForwardIosOutline,
     }),
   ],
   exports: [

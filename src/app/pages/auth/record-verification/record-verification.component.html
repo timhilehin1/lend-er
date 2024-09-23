@@ -1,0 +1,49 @@
+<app-auth-layout>
+  <div class="p-6 lg:p-12">
+    <div (click)="onBack()" class="flex items-center gap-2 cursor-pointer">
+        <ng-icon
+          size="1rem"
+          class="text-primary-color"
+          name="heroArrowLeft"
+        ></ng-icon>
+        <p class="text-primary-color text-sm">Back</p>
+      </div>
+    <p class="text-header text-3xl font-medium mt-8">Verify your details!</p>
+    <p class="text-sub-text mt-4">
+      Please ensure that the information listed below matches the information
+      associated with your bvn.
+    </p>
+
+    <section class="space-y-4 mt-4">
+      <div class="flex gap-16 items-center">
+        <p class="text-sub-text-color grow-0 w-48">First Name:</p>
+        <p class="text-sub-text">Timilehin</p>
+      </div>
+
+      <div class="flex gap-16 items-center">
+        <p class="text-sub-text-color grow-0 w-48">Last Name:</p>
+        <p class="text-sub-text">Oladapo</p>
+      </div>
+
+      <div class="flex gap-16 items-center">
+        <p class="text-sub-text-color grow-0 w-48">Date of birth:</p>
+        <p class="text-sub-text">24-02-2002</p>
+      </div>
+
+      <div class="flex gap-16 items-center">
+        <p class="text-sub-text-color">Registered email:</p>
+        <p class="text-sub-text shrink-2 grow-0">
+          {{ hideEmail("timilehinoladapo0@gmail.com") }}
+        </p>
+      </div>
+    </section>
+
+    <button routerLink="/otp-verification" class="p-2.5 rounded-md text-white w-full mt-6 bg-primary-color">
+      Proceed
+    </button>
+    <p class="text-sub-text mt-4 text-sm">
+      You can contact the bvn enrollment centre if your details need to be
+      updated
+    </p>
+  </div>
+</app-auth-layout>

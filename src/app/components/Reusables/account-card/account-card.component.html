@@ -1,0 +1,41 @@
+<section class="flex flex-col gap-4 lg:gap-9">
+  <div
+    [ngStyle]="{ 'background-color': color }"
+    class="rounded-lg p-3 flex flex-col min-h-36 gap-4  w-full text-sub-text"
+  >
+    <div class="flex items-center gap-4 text-sm">
+      <!-- <ng-icon
+        size="1.2rem"
+        class="text-primary-color"
+        name="matHouseOutline"
+      ></ng-icon> -->
+      <p>{{ title }}</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <p class="text-xl font-[500]">
+        {{ amount | currency : "₦" : "symbol" : "1.0-0" }}
+      </p>
+
+      <ng-icon
+        size="1.2rem"
+        class="text-sub-text cursor-pointer"
+        name="heroEyeSlash"
+      ></ng-icon>
+    </div>
+  </div>
+
+  <div
+    [routerLink]="url"
+    [ngStyle]="{ 'background-color': color }"
+    class="h-14 rounded-lg flex justify-between items-center p-3 w-full text-sub-text cursor-pointer"
+  >
+    <p class="flex items-center">{{ actionText }}</p>
+    <div>
+      <ng-icon
+        size="1rem"
+        class="text-sub-text flex items-center cursor-pointer"
+        name="matArrowForwardIosOutline"
+      ></ng-icon>
+    </div>
+  </div>
+</section>

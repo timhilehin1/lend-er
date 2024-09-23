@@ -1,0 +1,37 @@
+<section class="min-h-72 bg-white p-4 rounded-md">
+  <header class="flex gap-4 items-center">
+    <ng-icon
+      size="1.5rem"
+      class="text-header"
+      name="heroRocketLaunch"
+    ></ng-icon>
+    <div class="flex flex-col gap-0.5">
+      <p class="text-xl text-header font-bold">Quick Actions</p>
+      <p class="text-sub-text text-sm">Here are things you might want to do</p>
+    </div>
+  </header>
+
+  <div class="mt-10 flex flex-wrap gap-6">
+    @for (action of actiondata; track $index) {
+    <app-action-card
+      [url]="action.url"
+      [icon]="action.icon"
+      [text]="action.text"
+      [color]="action.color"
+      class="flex-grow"
+    ></app-action-card
+    >}
+  </div>
+</section>
+
+<div
+  class="mt-4 bg-white p-4 rounded-md min-h-20 flex flex-wrap justify-between items-center"
+>
+  <img class="" src="/assets/icons/loanProducts.svg" alt="loan image" />
+  <div>
+    <p class="text-header">Find the perfect loan for you</p>
+    <p class="text-sub-text text-sm">Learn about our different loan products</p>
+    <button class="p-2 bg-header text-white rounded-md block lg:hidden mt-1">View products</button>
+  </div>
+  <button class="p-2 bg-header text-white rounded-md hidden lg:block">View products</button>
+</div>
