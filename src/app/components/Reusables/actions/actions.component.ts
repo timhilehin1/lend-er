@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { SharedModule } from '../../../modules/shared/shared.module';
 import { ActionCardComponent } from '../action-card/action-card.component';
 
@@ -8,6 +8,7 @@ import { ActionCardComponent } from '../action-card/action-card.component';
   imports: [SharedModule, ActionCardComponent],
   templateUrl: './actions.component.html',
   styleUrl: './actions.component.scss',
+  
 })
 export class ActionsComponent {
   actiondata: {

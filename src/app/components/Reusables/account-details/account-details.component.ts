@@ -1,13 +1,15 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { AccountCardComponent } from '../account-card/account-card.component';
+import { SharedModule } from '../../../modules/shared/shared.module';
 
 @Component({
   selector: 'app-account-details',
   standalone: true,
-  imports: [CurrencyPipe, AccountCardComponent],
+  imports: [CurrencyPipe, AccountCardComponent, SharedModule],
   templateUrl: './account-details.component.html',
   styleUrl: './account-details.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccountDetailsComponent {
   accountCardsData = [
