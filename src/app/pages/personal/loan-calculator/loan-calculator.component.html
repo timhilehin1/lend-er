@@ -1,0 +1,140 @@
+<app-personal-layout>
+  <section class="flex flex-col gap-4 maxWidth mt-4">
+    <header class="navigation flex gap-4 mt-4 p-4">
+      <ng-icon
+        size="1.5rem"
+        class="text-sub-text flex items-center cursor-pointer font-[500]"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <div class="flex flex-col gap-1.5">
+        <p class="text-header font-[500]">Loan Calculator</p>
+        <p class="text-sub-text text-sm">
+          Calculate your loan and know how much you will pay back
+        </p>
+      </div>
+    </header>
+
+    <div
+      class="h-full min-h-[500px] rounded-lg bg-white grid-cols-1 grid md:grid-cols-2 gap-8 p-4 md:p-16"
+    >
+      <!-- //LHS -->
+      <div class="self-center max-w-[500px]">
+        <div class="flex gap-4 items-center">
+          <img
+            class="image"
+            src="/assets/images/loanCalc.png"
+            alt="loan calc image"
+          />
+          <p class="text-header text-3xl font-[500]">
+            Calculate your Loan Repayment with 3 simple steps!
+          </p>
+        </div>
+        <p class="text-sub-text mt-4 font-[500]">
+          With the personal loan calculator, you can estimate how much you need
+          to pay back
+        </p>
+
+        <p
+          routerLink="/loan-application"
+          class="underline text-header font-[500] text-center mt-8 cursor-pointer"
+        >
+          Apply for loan
+        </p>
+      </div>
+
+      <div>
+        <form
+          class="flex flex-col mt-4 space-y-4"
+          [formGroup]="calculatorForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="flex flex-col gap-1 mt-4">
+            <label>Amount(naira)</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="tel"
+              formControlName="amount"
+              placeholder="Enter desired amount"
+            />
+            @if ( calculatorForm.controls["amount"].invalid &&
+            calculatorForm.controls["amount"].touched ) {
+            <div class="text-red-500 text-sm mt-1">
+              Enter your desired amount
+            </div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Product Type</label>
+            <select
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              formControlName="loanType"
+            >
+              <option value="">select loan type</option>
+              <option value="quick">Quick Loans</option>
+              <option value="sme">SME loans</option>
+              <option value="school">Back to school loans</option>
+            </select>
+            @if ( calculatorForm.controls["loanType"].invalid &&
+            calculatorForm.controls["loanType"].touched ) {
+            <div class="text-red-500 text-sm mt-1">select valid loan type</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Loan Description</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="tel"
+              formControlName="loanDesciption"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Loan Duration</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="loanTerm"
+            />
+          </div>
+
+          <div class="flex justify-center gap-16 items-center mt-2">
+            <button
+              class="p-2.5 px-12 border-header border hover:bg-header hover:text-white text-sub-text font-[500] rounded-lg"
+            >
+              Reset
+            </button>
+
+            <button
+              class="p-2.5 px-12 text-white bg-header font-[500] rounded-lg"
+            >
+              Calculate
+            </button>
+          </div>
+        </form>
+        <div
+          class="repayment_sheet bg-[#E9F8FF] min-h-20 rounded-lg mx-auto w-full max-w-[500px] flex items-center p-4 justify-between mt-8 text-sub-text font-[500]"
+        >
+          <div class="text-sm">
+            Your total repayment <br />
+            <span class="text-2xl text-header font-[500] text-center">{{
+              5250 | currency : "₦" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+          <img
+            class=""
+            src="assets/images/verticalLine.png"
+            alt="vertical line"
+          />
+          <div class="text-sm">
+            Your monthly repayment is<br />
+            <span class="text-2xl text-header font-[500] text-center">{{
+              1250 | currency : "₦" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-personal-layout>

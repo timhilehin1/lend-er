@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../../components/Reusables/navbar/navbar.component';
 import { AccountDetailsComponent } from '../../../components/Reusables/account-details/account-details.component';
 import { ActionsComponent } from '../../../components/Reusables/actions/actions.component';
+import { PersonalLayoutComponent } from '../personal-layout/personal-layout.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NavbarComponent, AccountDetailsComponent, ActionsComponent],
+  imports: [AccountDetailsComponent, ActionsComponent, PersonalLayoutComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

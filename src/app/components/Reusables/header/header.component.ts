@@ -3,10 +3,12 @@ import { LogoComponent } from '../../../pages/landingPage/logo/logo.component';
 import { SharedModule } from '../../../modules/shared/shared.module';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-header',
   standalone: true,
   imports: [LogoComponent, SharedModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
-export class NavbarComponent {}
+export class HeaderComponent {
+
+}

@@ -6,6 +6,7 @@ import { OtpVerificationComponent } from './pages/auth/otp-verification/otp-veri
 import { RecordVerificationComponent } from './pages/auth/record-verification/record-verification.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { DashboardComponent } from './pages/personal/dashboard/dashboard.component';
+import { LoanCalculatorComponent } from './pages/personal/loan-calculator/loan-calculator.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'record-verification', component: RecordVerificationComponent },
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'loan-calculator', component: LoanCalculatorComponent },
 ];

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIconsModule } from '@ng-icons/core';
 import { RouterLink } from '@angular/router';
@@ -47,6 +47,7 @@ import { matArrowForwardIosOutline, matHouseOutline } from '@ng-icons/material-i
       heroEye,
       matHouseOutline,
       matArrowForwardIosOutline,
+      
     }),
   ],
   exports: [
@@ -55,6 +56,7 @@ import { matArrowForwardIosOutline, matHouseOutline } from '@ng-icons/material-i
     ReactiveFormsModule,
     NgIconsModule,
     RouterLink,
+    CurrencyPipe
   ],
 })
 export class SharedModule {}
