@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../../modules/shared/shared.module';
 import { PersonalLayoutComponent } from '../personal-layout/personal-layout.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedServiceService } from '../../../services/shared-service.service';
 
 @Component({
   selector: 'app-loan-calculator',
@@ -12,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoanCalculatorComponent implements OnInit {
   calculatorForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private shared: SharedServiceService) {}
 
   ngOnInit(): void {
     this.calculatorForm = this.fb.group({
@@ -23,4 +24,8 @@ export class LoanCalculatorComponent implements OnInit {
     });
   }
   onSubmit() {}
+
+  goBack(){
+    this.shared.goBack()
+  }
 }

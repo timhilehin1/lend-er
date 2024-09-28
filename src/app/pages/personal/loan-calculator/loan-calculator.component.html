@@ -2,7 +2,8 @@
   <section class="flex flex-col gap-4 maxWidth mt-4">
     <header class="navigation flex gap-4 mt-4 p-4">
       <ng-icon
-        size="1.5rem"
+        (click)="goBack()"
+        size="1.2rem"
         class="text-sub-text flex items-center cursor-pointer font-[500]"
         name="heroArrowLeft"
       ></ng-icon>
@@ -99,7 +100,7 @@
             />
           </div>
 
-          <div class="flex justify-center gap-16 items-center mt-2">
+          <div class="flex justify-center gap-16 items-center !mt-6">
             <button
               class="p-2.5 px-12 border-header border hover:bg-header hover:text-white text-sub-text font-[500] rounded-lg"
             >
@@ -114,7 +115,7 @@
           </div>
         </form>
         <div
-          class="repayment_sheet bg-[#E9F8FF] min-h-20 rounded-lg mx-auto w-full max-w-[500px] flex items-center p-4 justify-between mt-8 text-sub-text font-[500]"
+          class="repayment_sheet bg-[#E9F8FF] min-h-20 rounded-lg mx-auto w-full max-w-[500px] flex items-center p-4 justify-between mt-16 text-sub-text font-[500] "
         >
           <div class="text-sm">
             Your total repayment <br />
