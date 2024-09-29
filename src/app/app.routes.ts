@@ -7,6 +7,8 @@ import { RecordVerificationComponent } from './pages/auth/record-verification/re
 import { LoginComponent } from './pages/auth/login/login.component';
 import { DashboardComponent } from './pages/personal/dashboard/dashboard.component';
 import { LoanCalculatorComponent } from './pages/personal/loan-calculator/loan-calculator.component';
+import { LoanApplicationComponent } from './pages/personal/loan-application/loan-application.component';
+import { GuarantorComponent } from './pages/personal/guarantor/guarantor.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,4 +19,9 @@ export const routes: Routes = [
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'loan-calculator', component: LoanCalculatorComponent },
+  {
+    path: 'loan-application',
+    component: LoanApplicationComponent,
+  },
+  { path: 'loan-application/guarantor', component: GuarantorComponent },
 ];

@@ -1,0 +1,100 @@
+<app-personal-layout>
+  <section class="flex flex-col gap-4 maxWidth mt-4">
+    <header class="navigation flex gap-4 mt-4 p-4">
+      <ng-icon
+        (click)="goBack()"
+        size="1.2rem"
+        class="text-sub-text flex items-center cursor-pointer font-[500]"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <div class="flex flex-col gap-1.5">
+        <p class="text-header font-[500]">Loan Application</p>
+        <p class="text-sub-text text-sm">Apply for loan</p>
+      </div>
+    </header>
+
+    <div class="h-full min-h-[500px] rounded-lg bg-white p-4 md:p-16">
+      <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-1">
+            <label>Loan Type</label>
+            <select
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              formControlName="loanType"
+            >
+              <option value="">select loan type</option>
+              <option value="quick">Quick Loans</option>
+              <option value="sme">SME loans</option>
+              <option value="school">Back to school loans</option>
+            </select>
+            @if ( applicationForm.controls["loanType"].invalid &&
+            applicationForm.controls["loanType"].touched ) {
+            <div class="text-red-500 text-sm mt-1">select valid loan type</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Purpose</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="purpose"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Amount(Naira)</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="number"
+              formControlName="amount"
+            />
+            @if ( applicationForm.controls["amount"].invalid &&
+            applicationForm.controls["amount"].touched ) {
+            <div class="text-red-500 text-sm mt-1">
+              Enter your desired amount
+            </div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Loan Duration</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="loanTerm"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Interest Rate</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="number"
+              formControlName="interest"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Expected payback amount</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="number"
+              formControlName="returnAmount"
+            />
+          </div>
+        </div>
+        <div class="flex justify-end items-center !mt-6">
+          <button
+            routerLink="/loan-application/guarantor"
+            class="p-2.5 px-12 text-white bg-header font-[500] rounded-lg"
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</app-personal-layout>
+
+<!-- //based on the tier, you can complete verification process -->

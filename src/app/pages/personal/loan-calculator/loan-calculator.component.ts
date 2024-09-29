@@ -17,7 +17,7 @@ export class LoanCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.calculatorForm = this.fb.group({
-      amount: [null, Validators.required],
+      amount: [{ value: null, disabled: true }, Validators.required],
       loanType: [null, Validators.required],
       loanDesciption: [{ value: null, disabled: true }, Validators.required],
       loanTerm: [{ value: null, disabled: true }, Validators.required],
@@ -25,7 +25,7 @@ export class LoanCalculatorComponent implements OnInit {
   }
   onSubmit() {}
 
-  goBack(){
-    this.shared.goBack()
+  goBack() {
+    this.shared.goBack();
   }
 }
