@@ -1,1 +1,178 @@
-<p>guarantor works!</p>
+<app-personal-layout>
+  <section class="flex flex-col gap-4 maxWidth mt-4">
+    <header class="navigation flex gap-4 mt-4 p-4">
+      <ng-icon
+        (click)="goBack()"
+        size="1.2rem"
+        class="text-sub-text flex items-center cursor-pointer font-[500]"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <div class="flex flex-col gap-1.5">
+        <p class="text-header font-[500]">Guarantor Details</p>
+        <p class="text-sub-text text-sm">Please fill the form</p>
+      </div>
+    </header>
+
+    <div class="h-full min-h-[500px] rounded-lg bg-white p-4 md:p-16">
+      <form [formGroup]="guarantorForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-1">
+            <label>First name</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="firstName"
+              placeholder="first name"
+            />
+            @if ( guarantorForm.controls["firstName"].invalid &&
+            guarantorForm.controls["firstName"].touched ) {
+            <div class="text-red-500 text-sm mt-1">Enter your first name</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Last name</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="lastName"
+              placeholder="last name"
+            />
+            @if ( guarantorForm.controls["lastName"].invalid &&
+            guarantorForm.controls["lastName"].touched ) {
+            <div class="text-red-500 text-sm mt-1">Enter your last name</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Phone number</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="phoneNumber"
+              placeholder="phone number"
+            />
+            @if ( guarantorForm.controls["phoneNumber"].invalid &&
+            guarantorForm.controls["phoneNumber"].touched ) {
+            <div class="text-red-500 text-sm mt-1">Enter your phone number</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Guarantor's email address</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="email"
+              formControlName="email"
+              placeholder="email"
+            />
+            @if ( guarantorForm.controls["email"].invalid &&
+            guarantorForm.controls["email"].touched ) {
+            <div class="text-red-500 text-sm mt-1">Enter email address</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Guarantor's residential address</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="residentialAddress"
+              placeholder="residential address"
+            />
+            @if ( guarantorForm.controls["residentialAddress"].invalid &&
+            guarantorForm.controls["residentialAddress"].touched ) {
+            <div class="text-red-500 text-sm mt-1">
+              Enter gurantor's address
+            </div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label> Relationship type</label>
+            <select
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              formControlName="relationship"
+            >
+              <option value="">select relationship type</option>
+              <option value="family">Family</option>
+              <option value="friend">Friend</option>
+              <option value="acquaintance">Acquaintance</option>
+              <option value="boss">Boss</option>
+              <option value="colleague">Colleague</option>
+            </select>
+            @if ( guarantorForm.controls["relationship"].invalid &&
+            guarantorForm.controls["relationship"].touched ) {
+            <div class="text-red-500 text-sm mt-1">
+              select relationship type
+            </div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Guarantor's id(NIN)</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="guarantorNin"
+              placeholder="Guarantor nin"
+            />
+            @if ( guarantorForm.controls["guarantorNin"].invalid &&
+            guarantorForm.controls["guarantorNin"].touched ) {
+            <div class="text-red-500 text-sm mt-1">Enter gurantor's Nin</div>
+            }
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label>Guarantor's estimated monthly icome</label>
+            <input
+              class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+              type="text"
+              formControlName="guarantorIncome"
+              placeholder="estimated monthly income"
+            />
+            @if ( guarantorForm.controls["guarantorIncome"].invalid &&
+            guarantorForm.controls["guarantorIncome"].touched ) {
+            <div class="text-red-500 text-sm mt-1">
+              Enter guarantor's estimated monthly icome
+            </div>
+            }
+          </div>
+        </div>
+        <div
+          class="flex flex-col-reverse gap-4 md:gap-8 md:flex-row items-start md:items-center mt-6"
+        >
+          <div class="flex items-center gap-2 w-full">
+            <input
+              class="p-2.5 rounded-md  focus:outline-primary-color grow-0 border"
+              type="checkbox"
+              name="termsAndCondition"
+              formControlName="termsAndCondition"
+            />
+            <label class="md:hidden text-nowrap" htmlFor="termsAndCondition ">I agree</label>
+          </div>
+          <label
+            >By checking this box, I hereby confirm that I have obtained the
+            explicit consent of the guarantor to act in this capacity and
+            provided their personal information. I acknowledge that the
+            guarantor will be held responsible for repaying the loan in the
+            event that I default on the repayment. I understand that by
+            submitting the guarantor’s information, I am giving
+            {{ companyName }} the right to contact the guarantor and hold them
+            accountable for the loan as per the terms of the agreement.</label
+          >
+        </div>
+        <div class="flex justify-end items-center !mt-6">
+          <button
+            routerLink="/loan-application/guarantor/verification"
+            class="p-2.5 px-12 text-white bg-header font-[500] rounded-lg"
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</app-personal-layout>
+
+<!-- //based on the tier, you can complete verification process -->
