@@ -35,6 +35,6 @@ export class GuarantorComponent implements OnInit {
   }
 
   onSubmit() {
-    this.guarantorForm.markAllAsTouched();
+    // this.guarantorForm.markAllAsTouched();
   }
 }

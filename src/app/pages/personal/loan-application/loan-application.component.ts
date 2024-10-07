@@ -3,6 +3,7 @@ import { PersonalLayoutComponent } from '../personal-layout/personal-layout.comp
 import { SharedModule } from '../../../modules/shared/shared.module';
 import { SharedServiceService } from '../../../services/shared-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-application',
@@ -13,7 +14,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoanApplicationComponent implements OnInit {
   applicationForm!: FormGroup;
-  constructor(private shared: SharedServiceService, private fb: FormBuilder) {}
+  constructor(
+    private shared: SharedServiceService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
   goBack() {
     this.shared.goBack();
   }
@@ -29,5 +34,13 @@ export class LoanApplicationComponent implements OnInit {
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    let pinStatus = this.shared.getSessionData();
+    if (pinStatus && pinStatus.createdPin) {
+      //if the user has set up his/her pin
+      this.router.navigateByUrl('/loan-application/guarantor');
+    } else {
+      this.router.navigateByUrl('/create-pin');
+    }
+  }
 }
