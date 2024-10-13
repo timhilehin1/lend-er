@@ -1,0 +1,146 @@
+<app-personal-layout>
+  <section class="flex flex-col gap-4 mt-4 maxWidth">
+    <header class="flex gap-4 mt-4 p-4">
+      <ng-icon
+        (click)="goBack()"
+        size="1.2rem"
+        class="text-sub-text flex items-center cursor-pointer font-[500]"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <div class="flex flex-col gap-1.5">
+        <p class="text-header font-[500]">Fund Transfer</p>
+        <p class="text-sub-text text-sm">
+          Transfer your funds to other bank account
+        </p>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6">
+      <!-- left hand side -->
+      <div class="h-full min-h-[500px] rounded-lg bg-white shadow p-8">
+        <!-- //sender details -->
+        <header class="flex items-center gap-6">
+          <p class="font-bold shrink-0">Sender Details</p>
+          <hr class="w-full border" />
+        </header>
+
+        <div class="flex items-center gap-6 mt-6">
+          <div class="flex flex-col gap-1 w-full">
+            <label class="font-[500]">Account ID</label>
+            <input
+              class="border p-2.5 rounded-md w-full"
+              type="text"
+              [disabled]="true"
+              [(ngModel)]="senderAccountNumber"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1 w-full">
+            <label class="font-[500]">Account Balance</label>
+            <input
+              class="border p-2.5 rounded-md w-full"
+              type="text"
+              [disabled]="true"
+              [(ngModel)]="senderAccountBalance"
+            />
+          </div>
+        </div>
+
+        <!-- //recipient details -->
+        <header class="flex items-center gap-6 mt-6">
+          <p class="font-bold shrink-0">Receiver Details</p>
+          <hr class="w-full border" />
+        </header>
+
+        <form class="mt-6" [formGroup]="recipientForm" (ngSubmit)="onSubmit()">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-1">
+              <label class="font-[500]">Bank Name</label>
+              <select
+                class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+                formControlName="bankName"
+              >
+                <option value="gtb">GTB</option>
+                <option value="access">ACCESS</option>
+                <option value="moniepoint">MONIEPOINT</option>
+              </select>
+              @if ( recipientForm.controls["bankName"].invalid &&
+              recipientForm.controls["bankName"].touched ) {
+              <div class="text-red-500 text-sm mt-1">
+                select destination bank
+              </div>
+              }
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label class="font-[500]">Account Number</label>
+              <input
+                class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+                type="number"
+                formControlName="recipientAccountNumber"
+              />
+              @if ( recipientForm.controls["recipientAccountNumber"].invalid &&
+              recipientForm.controls["recipientAccountNumber"].touched ) {
+              <div class="text-red-500 text-sm mt-1">
+                Enter your destination account number
+              </div>
+              }
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label>Amount(Naira)</label>
+              <input
+                class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+                type="number"
+                formControlName="amount"
+              />
+              @if ( recipientForm.controls["amount"].invalid &&
+              recipientForm.controls["amount"].touched ) {
+              <div class="text-red-500 text-sm mt-1">
+                Enter your desired amount
+              </div>
+              }
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label>Narration</label>
+              <input
+                class="border p-2.5 rounded-md w-full focus:outline-primary-color"
+                type="text"
+                formControlName="narration"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-end items-center !mt-6">
+            <button
+              type="submit"
+              class="p-2.5 px-12 text-white bg-header font-[500] rounded-lg"
+            >
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- right hand side -->
+      <div
+        class="h-full min-h-[500px] rounded-lg bg-white shadow hidden md:block p-8"
+      >
+        <p class="font-[700]">Recent Transactions</p>
+
+        <section class="mt-6">
+          @for (transaction of transactions; track $index) {
+          <app-history-card
+           
+            [name]="transaction.name"
+            [type]="transaction.type"
+            [date]="transaction.date"
+            [amount]="transaction.amount"
+          />
+          }
+        </section>
+      </div>
+    </div>
+  </section>
+</app-personal-layout>

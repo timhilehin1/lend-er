@@ -1,0 +1,13 @@
+<div class="rounded-lg shadow border flex flex-col gap-1 p-2.5 cursor-pointer  mt-4">
+  <div class="flex items-center justify-between">
+    <p class="font-[700] text-[#A90909] shrink-0">
+      {{ amount | currency : "₦" : "symbol" : "1.0-0" }}
+    </p>
+    <img class="" src="assets/icons/debit.svg" alt="" />
+  </div>
+
+  <div class="flex items-center justify-between">
+    <p class="font-[500] shrink-0">{{ name }}</p>
+    <p class="text-[#6F6F6F] text-xs font-[600]">{{ date }}</p>
+  </div>
+</div>

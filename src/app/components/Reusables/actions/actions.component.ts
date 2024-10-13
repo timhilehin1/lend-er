@@ -35,7 +35,7 @@ export class ActionsComponent {
     {
       icon: '/assets/icons/fundsTransfer.svg',
       text: 'Funds Transfer',
-      url: '/funds-transfer',
+      url: '/fund-transfer',
       color: '#E5FFE3',
       id: 3,
     },
