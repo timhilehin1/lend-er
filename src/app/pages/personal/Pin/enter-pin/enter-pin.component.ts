@@ -55,7 +55,7 @@ export class EnterPinComponent implements OnInit {
     this.pin = newOtp;
   }
   handleSubmit() {
-    //if pin is successfule, show success modal and correct message with correct destination route
+    //if pin is successfule, show successs modal and correct message with correct destination route
     if (this.destinationRoute === 'guarantor') {
       this.router.navigateByUrl('/loan-application/guarantor');
     }
