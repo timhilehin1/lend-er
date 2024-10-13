@@ -40,9 +40,9 @@ export class EnterPinComponent implements OnInit {
   destinationRoute: string = '';
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=>{
-      this.destinationRoute = params['destination']
-    })
+    this.route.queryParams.subscribe((params) => {
+      this.destinationRoute = params['destination'];
+    });
   }
   goBack() {
     this.shared.goBack();
@@ -55,8 +55,9 @@ export class EnterPinComponent implements OnInit {
     this.pin = newOtp;
   }
   handleSubmit() {
-    if(this.destinationRoute === 'guarantor'){
-      this.router.navigateByUrl('/loan-application/guarantor')
+    //if pin is successfule, show success modal and correct message with correct destination route
+    if (this.destinationRoute === 'guarantor') {
+      this.router.navigateByUrl('/loan-application/guarantor');
     }
     //pass a query to my url, so depending on the query should determine where my application shoute route too
   }
