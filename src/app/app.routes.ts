@@ -10,6 +10,7 @@ import { LoanCalculatorComponent } from './pages/personal/loan-calculator/loan-c
 import { LoanApplicationComponent } from './pages/personal/loan-application/loan-application.component';
 import { GuarantorComponent } from './pages/personal/guarantor/guarantor.component';
 import { CreatePinComponent } from './pages/personal/Pin/create-pin/create-pin.component';
+import { EnterPinComponent } from './pages/personal/Pin/enter-pin/enter-pin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,4 +27,5 @@ export const routes: Routes = [
   },
   { path: 'loan-application/guarantor', component: GuarantorComponent },
   { path: 'create-pin', component: CreatePinComponent },
+  { path: 'pin-verification', component: EnterPinComponent },
 ];

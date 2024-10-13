@@ -28,32 +28,28 @@
 
         <div class="text-center">Enter a 6-digit pin you won’t forget</div>
         <div class="border p-4 rounded-lg w-full relative bg-white">
-          <p-inputOtp
-            [(ngModel)]="value"
+          <app-otp-input
+            [(value)]="pin"
             [mask]="true"
             [integerOnly]="true"
-            [style]="{ display: 'flex', justifyContent: 'center' }"
-            variant="filled"
-            [autofocus]="true"
             [length]="6"
-            (ngModelChange)="onChange()"
-          />
+            variant="filled"
+            (valueChange)="onChange($event)"
+          ></app-otp-input>
         </div>
         <div class="text-center">Confirm your 6-digit pin</div>
         <div class="border p-4 rounded-lg w-full relative bg-white">
-            <p-inputOtp
-              [(ngModel)]="value"
-              [mask]="true"
-              [integerOnly]="true"
-              [style]="{ display: 'flex', justifyContent: 'center' }"
-              variant="filled"
-              [autofocus]="true"
-              [length]="6"
-              (ngModelChange)="onChange()"
-            />
-          </div>
+          <app-otp-input
+            [(value)]="confirmPin"
+            [mask]="true"
+            [integerOnly]="true"
+            [length]="6"
+            variant="filled"
+            (valueChange)="onConfirmPin($event)"
+          ></app-otp-input>
+        </div>
       </div>
-      <div class="flex justify-end mt-4">
+      <div (click)="handleSubmit()" class="flex justify-end mt-4">
         <button class="bg-header rounded-lg p-2.5 text-white px-5">
           Submit
         </button>
@@ -61,3 +57,20 @@
     </div>
   </section>
 </app-personal-layout>
+
+<!-- //success modal -->
+<app-success-modal
+  [visible]="successModalData.isVerified"
+  [title]="successModalData.title"
+  [subtitle]="successModalData.subtitle"
+  [url]="successModalData.url"
+></app-success-modal>
+
+<!-- //error modal -->
+<app-error-modal
+  [visible]="errorModalData.isOpen"
+  [title]="errorModalData.title"
+  [subtitle]="errorModalData.subtitle"
+  (closeModal)="closeErrorModal($event)"
+>
+</app-error-modal>

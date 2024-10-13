@@ -7,6 +7,7 @@ import { InputOtpModule } from 'primeng/inputotp';
 import { SharedServiceService } from '../../../services/shared-service.service';
 import { SuccessModalComponent } from '../../../components/Reusables/success-modal/success-modal.component';
 import { DialogModule } from 'primeng/dialog';
+import { OtpInputComponent } from '../../../components/Reusables/otp-input/otp-input.component';
 
 @Component({
   selector: 'app-otp-verification',
@@ -20,6 +21,7 @@ import { DialogModule } from 'primeng/dialog';
     FormsModule,
     SuccessModalComponent,
     DialogModule,
+    OtpInputComponent
   ],
   templateUrl: './otp-verification.component.html',
   styleUrl: './otp-verification.component.scss',
@@ -38,8 +40,8 @@ export class OtpVerificationComponent {
   };
   constructor(private sharedService: SharedServiceService) {}
   value: any;
-  onChange() {
-    console.log(this.value);
+  onChange(newOtp: string) {
+    this.value = newOtp;
   }
 
   onBack() {

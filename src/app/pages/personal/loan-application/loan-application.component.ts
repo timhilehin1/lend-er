@@ -38,7 +38,9 @@ export class LoanApplicationComponent implements OnInit {
     let pinStatus = this.shared.getSessionData();
     if (pinStatus && pinStatus.createdPin) {
       //if the user has set up his/her pin
-      this.router.navigateByUrl('/loan-application/guarantor');
+      this.router.navigate(['/pin-verification'], {
+        queryParams: { destination: 'guarantor' },
+      });
     } else {
       this.router.navigateByUrl('/create-pin');
     }

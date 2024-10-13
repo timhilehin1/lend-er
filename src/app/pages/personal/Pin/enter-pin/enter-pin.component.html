@@ -1,1 +1,57 @@
-<p>enter-pin works!</p>
+<app-personal-layout>
+  <section class="flex flex-col gap-4 maxWidth mt-4">
+    <header class="navigation flex gap-4 mt-4 p-4">
+      <ng-icon
+        (click)="goBack()"
+        size="1.2rem"
+        class="text-sub-text flex items-center cursor-pointer font-[500]"
+        name="heroArrowLeft"
+      ></ng-icon>
+      <div class="flex flex-col gap-1.5">
+        <p class="text-header font-[500]">Enter Pin</p>
+        <p class="text-sub-text text-sm">Enter your 6 digit pin</p>
+      </div>
+    </header>
+
+    <div class="h-full min-h-[550px] rounded-lg bg-white p-4 md:p-16">
+      <div
+        class="mx-auto bg-[#F9F9F9] p-6 w-full max-w-[30rem] h-full min-h-[400px] flex flex-col space-y-6 text-header"
+      >
+        <div class="flex justify-center flex-col gap-2">
+          <img
+            src="/assets/images/pin.png"
+            alt="padlock image"
+            class="mx-auto grow-0"
+          />
+          <p class="font-bold text-center">Enter your PIN</p>
+        </div>
+
+        <div class="text-center">Enter your 6-digit pin</div>
+        <div class="border p-4 rounded-lg w-full relative bg-white">
+          <app-otp-input
+            [(value)]="pin"
+            [mask]="true"
+            [integerOnly]="true"
+            [length]="6"
+            variant="filled"
+            (valueChange)="onChange($event)"
+          ></app-otp-input>
+        </div>
+      </div>
+      <div (click)="handleSubmit()" class="flex justify-end mt-4">
+        <button class="bg-header rounded-lg p-2.5 text-white px-5">
+          Submit
+        </button>
+      </div>
+    </div>
+  </section>
+</app-personal-layout>
+
+<!-- //error modal -->
+<app-error-modal
+  [visible]="errorModalData.isOpen"
+  [title]="errorModalData.title"
+  [subtitle]="errorModalData.subtitle"
+  (closeModal)="closeErrorModal($event)"
+>
+</app-error-modal>

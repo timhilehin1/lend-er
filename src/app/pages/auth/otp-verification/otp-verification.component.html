@@ -17,16 +17,14 @@
     </p>
 
     <div class="border p-4 rounded-lg w-full relative">
-      <p-inputOtp
-        [(ngModel)]="value"
+      <app-otp-input
+        [(value)]="value"
         [mask]="true"
         [integerOnly]="true"
-        [style]="{ display: 'flex', justifyContent: 'center' }"
-        variant="filled"
-        [autofocus]="true"
         [length]="6"
-        (ngModelChange)="onChange()"
-      />
+        variant="filled"
+        (valueChange)="onChange($event)"
+      ></app-otp-input>
     </div>
     <p class="text-sub-text text-right">
       Didnt't get the code?
