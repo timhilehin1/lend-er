@@ -31,4 +31,3 @@ export const routes: Routes = [
   { path: 'pin-verification', component: EnterPinComponent },
   { path: 'fund-transfer', component: FundsTransferComponent },
 ];
-// "angular4-paystack": "^3.1.4",
