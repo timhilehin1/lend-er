@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "install": "npm install --legacy-peer-deps",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:lend-er": "node dist/lend-er/server/server.mjs"
